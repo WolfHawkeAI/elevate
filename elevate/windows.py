@@ -71,8 +71,8 @@ def elevate(show_console=True, graphical=True):
         fMask=SEE_MASK_NOCLOSEPROCESS | SEE_MASK_NO_CONSOLE,
         hwnd=None,
         lpVerb=b'runas',
-        lpFile=sys.executable.encode('cp1252'),
-        lpParameters=subprocess.list2cmdline(sys.argv).encode('cp1252'),
+        lpFile=sys.executable.encode('utf-8'),
+        lpParameters=subprocess.list2cmdline(sys.argv).encode('utf-8'),
         nShow=int(show_console))
 
     if not ShellExecuteEx(ctypes.byref(params)):
